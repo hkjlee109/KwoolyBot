@@ -1,0 +1,3 @@
+[submodule "src/scalacommon"]
+    path = src/scalacommon
+    url = https://github.com/kwoolytech/ScalaCommon.git

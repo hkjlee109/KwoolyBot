@@ -1,0 +1,24 @@
+# Java class and cachefiles
+*.class
+*.cache
+
+# Generated files
+target/
+project/
+dist/*
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Log Files
+*.log
+.keep
+.history
+.lib
+
+# IDE specific
+*.iml
+.idea/ 
+.scala_dependencies
+.worksheet
