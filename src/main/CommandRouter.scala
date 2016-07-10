@@ -6,7 +6,7 @@ case class CommandRouter() {
     val _command = command.split("\\s+").toList
 
     _command.head match {
-      case "dice" => Dice.run(_command.tail)
+      case "dice" => Dice().run(_command.tail)
       case _ => List()
     }
   }
