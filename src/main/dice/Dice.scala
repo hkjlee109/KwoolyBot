@@ -2,19 +2,19 @@ package com.kwoolytech.kwoolybot
 
 case class Dice() {
 
-  def run(command: List[String]): List[String] = {
+  def run(command: List[String], callback: List[String] => Unit) = {
     command.head match {
-      case "roll" => roll(command.tail)
-      case _ => List()
+      case "roll" => roll(command.tail, callback)
+      case _ => callback(List("Invalid dice command."))
     }
   }
 
-  private def roll(command: List[String]): List[String] = {
+  private def roll(command: List[String], callback: List[String] => Unit) = {
     val rollCmdPattern = "([0-9]+)d([0-9]+)".r
 
     command.head match {
-      case rollCmdPattern(numTry, diceSize) => rollDice(numTry.toInt, diceSize.toInt)
-      case _ => List()
+      case rollCmdPattern(numTry, diceSize) => callback(rollDice(numTry.toInt, diceSize.toInt))
+      case _ => callback(List("Invalid dice sub command."))
     }
   }
 

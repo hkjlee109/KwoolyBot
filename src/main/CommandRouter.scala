@@ -1,13 +1,17 @@
 package com.kwoolytech.kwoolybot
 
-case class CommandRouter() {
+case class CommandRouter() extends I_CommandRouter {
 
-  def run(command: String): List[String] = {
+  def onReceive(message: List[String]) = {
+    message.foreach(println)
+  }
+
+  def run(command: String) = {
     val _command = command.split("\\s+").toList
 
     _command.head match {
-      case "dice" => Dice().run(_command.tail)
-      case _ => List()
+      case "dice" => Dice().run(_command.tail, onReceive)
+      case _ => None
     }
   }
 
