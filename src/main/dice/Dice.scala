@@ -1,8 +1,8 @@
 package com.kwoolytech.kwoolybot
 
-case class Dice() {
+class Dice(command: List[String], callback: List[String] => Unit) extends Runnable {
 
-  def run(command: List[String], callback: List[String] => Unit) = {
+  override def run() = {
     command.head match {
       case "roll" => roll(command.tail, callback)
       case _ => callback(List("Invalid dice command."))
