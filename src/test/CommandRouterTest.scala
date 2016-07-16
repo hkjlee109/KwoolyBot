@@ -1,6 +1,5 @@
-package com.kwoolytech.kwoolybot
-
 import org.scalatest._
+import com.kwoolytech.kwoolybot.CommandRouter
 
 class CommandRouterSpecs extends FunSpec with Matchers {
 
