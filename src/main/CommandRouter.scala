@@ -10,7 +10,7 @@ case class CommandRouter() extends I_CommandRouter {
     val _command = command.split("\\s+").toList
 
     _command.head match {
-      case "dice" => Dice().run(_command.tail, onReceive)
+      case "dice" => new Thread(new Dice(_command.tail, onReceive)) start
       case _ => None
     }
   }
