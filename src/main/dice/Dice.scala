@@ -1,6 +1,6 @@
 package com.kwoolytech.kwoolybot
 
-class Dice(command: List[String], callback: List[String] => Unit) extends Runnable {
+class Dice(command: List[String], callback: List[String] => Unit) extends Bot {
 
   override def run() = {
     command.head match {
