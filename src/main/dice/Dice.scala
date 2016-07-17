@@ -1,11 +1,13 @@
 package com.kwoolytech.kwoolybot
 
+import com.kwoolytech.scalacommon._
+
 class Dice(command: List[String], callback: List[String] => Unit) extends Bot {
 
   override def run() = {
     command.head match {
       case "roll" => roll(command.tail, callback)
-      case _ => callback(List("Invalid dice command."))
+      case _ => Syslog.debug(getClass + " Invalid dice command.")
     }
   }
 
@@ -14,7 +16,7 @@ class Dice(command: List[String], callback: List[String] => Unit) extends Bot {
 
     command.head match {
       case rollCmdPattern(numTry, diceSize) => callback(rollDice(numTry.toInt, diceSize.toInt))
-      case _ => callback(List("Invalid dice sub command."))
+      case _ => Syslog.debug(getClass + " Invalid dice sub command.")
     }
   }
 
